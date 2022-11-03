@@ -5,6 +5,7 @@ import DisplayMusic from './components/DisplayMusic'
 function App() {
 
   const [songs, setSongs] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("Search")
 
   useEffect(() => {
     getAllSongs();

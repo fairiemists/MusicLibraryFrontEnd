@@ -4,29 +4,31 @@
 const DisplayMusic = ({songs}) => {
     return ( 
         <div>
-            <thead>
-                <tr>
-                    <th>Song Title</th>
-                    <th>Album</th>
-                    <th>Artist</th>
-                    <th>Genre</th>
-                    <th>Release Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                {songs.map({song} => {
-                    return (
+            <table>
+                <thead>
                     <tr>
-                        <td>{song.title}</td>
-                        <td>{song.album}</td>
-                        <td>{song.artist}</td>
-                        <td>{song.genre}</td>
-                        <td>{song.release_date}</td>
+                        <th>Title</th>
+                        <th>Album</th>
+                        <th>Artist</th>
+                        <th>Genre</th>
+                        <th>Release Date</th>
                     </tr>
-                    );
-                })}
+                </thead>
+                <tbody>
+                    {songs.map((song) => {
+                        return (
+                        <tr key={song.id}>
+                            <td>{song.title}</td>
+                            <td>{song.album}</td>
+                            <td>{song.artist}</td>
+                            <td>{song.genre}</td>
+                            <td>{song.release_date}</td>
+                        </tr>
+                        );
+                    })}
 
-            </tbody>
+                </tbody>
+            </table>
         </div>
      );
 }
