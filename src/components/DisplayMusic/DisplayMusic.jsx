@@ -1,7 +1,17 @@
-//button to delete??
-//filter table 
+
+// Write verification for delete function. 
+
+// import axios from "axios";
+
+
 
 const DisplayMusic = ({songs, input}) => {
+
+    // async function deleteSong(){
+    //     const response = await axios.delete('http://127.0.0.1:8000/api/music/??/');
+    //     console.log(response.data);
+    // }
+
     return ( 
         <div>
             <table>
@@ -12,6 +22,7 @@ const DisplayMusic = ({songs, input}) => {
                         <th>Artist</th>
                         <th>Genre</th>
                         <th>Release Date</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,6 +42,13 @@ const DisplayMusic = ({songs, input}) => {
                             <td>{song.artist}</td>
                             <td>{song.genre}</td>
                             <td>{song.release_date}</td>
+                            <td>
+                                <button type='button'
+                                    // onClick={deleteSong()}
+                                    className='class="btn btn-danger'>
+                                <i className="fa fa-trash"></i>
+                                </button>
+                            </td>
                         </tr>
                         );
                     })}

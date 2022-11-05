@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import DisplayMusic from './components/DisplayMusic/DisplayMusic'
+import DisplayMusic from './components/DisplayMusic/DisplayMusic';
 import SearchBar from './components/SearchBar/SearchBar';
+import AddSong from './components/AddSong/AddSong';
 
 function App() {
 
@@ -21,6 +22,9 @@ function App() {
 
   return (
     <div>
+      <AddSong/>
+      <br></br>
+      <br></br>
       <SearchBar input = {searchTerm} setInput = {setSearchTerm}/>
       <DisplayMusic songs = {songs} input = {searchTerm}/>
     </div>
