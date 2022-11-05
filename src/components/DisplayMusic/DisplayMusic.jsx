@@ -1,7 +1,7 @@
 //button to delete??
 //filter table 
 
-const DisplayMusic = ({songs}) => {
+const DisplayMusic = ({songs, input}) => {
     return ( 
         <div>
             <table>
@@ -15,7 +15,15 @@ const DisplayMusic = ({songs}) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {songs.map((song) => {
+                    {songs
+                    .filter(song => 
+                        song.title.toLowerCase().includes(input.toLowerCase()) ||
+                        song.album.toLowerCase().includes(input.toLowerCase()) ||
+                        song.artist.toLowerCase().includes(input.toLowerCase()) ||
+                        song.genre.toLowerCase().includes(input.toLowerCase()) ||
+                        song.release_date.toLowerCase().includes(input.toLowerCase()) 
+                         )
+                    .map((song) => {
                         return (
                         <tr key={song.id}>
                             <td>{song.title}</td>

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import DisplayMusic from './components/DisplayMusic'
+import DisplayMusic from './components/DisplayMusic/DisplayMusic'
+import SearchBar from './components/SearchBar/SearchBar';
 
 function App() {
 
   const [songs, setSongs] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("Search")
+  const [searchTerm, setSearchTerm] = useState("")
 
   useEffect(() => {
     getAllSongs();
@@ -20,7 +21,8 @@ function App() {
 
   return (
     <div>
-      <DisplayMusic songs = {songs} />
+      <SearchBar input = {searchTerm} setInput = {setSearchTerm}/>
+      <DisplayMusic songs = {songs} input = {searchTerm}/>
     </div>
   );
 }
