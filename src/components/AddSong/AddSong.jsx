@@ -34,6 +34,7 @@ const AddSong = (props) => {
                     <input type="date" className="form-control" id="releaseDate" placeholder="YYYY/MM/DD"/>
                 </div>
             </div>
+            <br></br>
             <button 
                 type="submit" 
                 className="btn btn-primary"
