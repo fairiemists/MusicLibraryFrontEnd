@@ -19,10 +19,15 @@ function App() {
     setSongs(response.data)
   }
 
+  //added per App on Social Feed project
+  function newSong(song) {
+    let tempSongs = [...songs, song];
+    setSongs(tempSongs);
+  }
 
   return (
     <div>
-      <AddSong/>
+      <AddSong newSongProperty={newSong} songs={songs} />
       <br></br>
       <br></br>
       <SearchBar input = {searchTerm} setInput = {setSearchTerm}/>

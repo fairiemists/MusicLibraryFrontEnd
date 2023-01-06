@@ -2,12 +2,34 @@
 //How to arrange date (year only?)
 
 import axios from "axios";
+import { useState } from "react";
 
-const AddSong = (props) => {
+const AddSong = ({newSongProperty, entries}) => {
 
-    async function addSong(){
-        const response = await axios.post('http://127.0.0.1:8000/api/music/');
+    const [title, setTitle] = useState('') //repeat
+    const [artist, setArtist] = useState('')
+    const [album, setAlbum] = useState('')
+    const [releaseDate, setReleaseDate] = useState('')
+    const [genre, setGenre] = useState('')
+
+    async function addSong(event){
+        event.preventDefault();
+        let song = {
+            title:title,
+            artist:artist,
+            album:album,
+            releaseDate:release_date,
+            genre:genre,
+        };
+        newSongProperty(newSong);
+        const response = await axios.post('http://127.0.0.1:8000/api/music/', song);
         console.log(response.data);
+        setTitle('');
+        setArtist('');
+        setAlbum('');
+        setReleaseDate('');
+        setGenre('');
+
     }
 
     return ( 
