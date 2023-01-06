@@ -4,7 +4,7 @@
 import axios from "axios";
 import { useState } from "react";
 
-const AddSong = ({newSongProperty, entries}) => {
+const AddSong = ({newSongProperty, songs}) => {
 
     const [title, setTitle] = useState('') //repeat
     const [artist, setArtist] = useState('')
@@ -18,10 +18,11 @@ const AddSong = ({newSongProperty, entries}) => {
             title:title,
             artist:artist,
             album:album,
-            releaseDate:release_date,
+            release_date:releaseDate,//:release_date,
             genre:genre,
+            // id:songs.length +1
         };
-        newSongProperty(newSong);
+        newSongProperty(song);
         const response = await axios.post('http://127.0.0.1:8000/api/music/', song);
         console.log(response.data);
         setTitle('');
