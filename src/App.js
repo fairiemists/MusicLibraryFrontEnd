@@ -7,7 +7,8 @@ import AddSong from './components/AddSong/AddSong';
 function App() {
 
   const [songs, setSongs] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("")
+  const [searchTerm, setSearchTerm] = useState("");
+  const [newSong, setNewSong] = useState("");
 
   useEffect(() => {
     getAllSongs();
@@ -20,10 +21,10 @@ function App() {
   }
 
   //added per App on Social Feed project
-  function newSong(song) {
-    let tempSongs = [...songs, song];
-    setSongs(tempSongs);
-  }
+  // function newSong(song) {
+  //   let tempSongs = [...songs, song];
+  //   setSongs(tempSongs);
+  // }
 
   return (
     <div>

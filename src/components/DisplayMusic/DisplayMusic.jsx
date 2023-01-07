@@ -22,7 +22,7 @@ const DisplayMusic = ({songs, input}) => {
                         <th>Artist</th>
                         <th>Genre</th>
                         <th>Release Date</th>
-                        <th>Delete</th>
+                        {/* <th>Delete</th> */}
                     </tr>
                 </thead>
                 <tbody>
@@ -42,13 +42,13 @@ const DisplayMusic = ({songs, input}) => {
                             <td>{song.artist}</td>
                             <td>{song.genre}</td>
                             <td>{song.release_date}</td>
-                            <td>
+                            {/* <td>
                                 <button type='button'
                                     // onClick={deleteSong()}
                                     className='class="btn btn-danger'>
                                 <i className="fa fa-trash"></i>
                                 </button>
-                            </td>
+                            </td> */}
                         </tr>
                         );
                     })}
