@@ -4,13 +4,13 @@
 import axios from "axios";
 import { useState } from "react";
 
-const AddSong = ({props, newSongProperty, songs}) => {
+const AddSong = ({getAllSongs}) => {
 
     const [title, setTitle] = useState('') 
-    const [artist, setArtist] = useState('')
     const [album, setAlbum] = useState('')
-    const [releaseDate, setReleaseDate] = useState('')
+    const [artist, setArtist] = useState('')
     const [genre, setGenre] = useState('')
+    const [releaseDate, setReleaseDate] = useState('')
 
 
     function handleSubmit(event) {
@@ -28,8 +28,9 @@ const AddSong = ({props, newSongProperty, songs}) => {
 
 
     async function addSong(newSongInfo){
-        await axios.post('http://127.0.0.1:8000/api/music/', newSongInfo);
-        props.getAllSongs();
+        let response = axios.post('http://127.0.0.1:8000/api/music/', newSongInfo);
+        console.log("New Song Sent", response.data)
+        await getAllSongs();
         
     }
 
@@ -48,11 +49,11 @@ const AddSong = ({props, newSongProperty, songs}) => {
                     <label for="addArtist">Artist</label>
                     <input type="text" onChange={(event) => setArtist(event.target.value)} className="form-control" id="artist" placeholder="Artist"/>
                 </div>
-                <div className="form-group col-md-1">
+                <div className="form-group col-md-2">
                     <label for="addGenre">Genre</label>
                     <input type="text" onChange={(event) => setGenre(event.target.value)} className="form-control" id="genre" placeholder="Genre"/>
                 </div>
-                <div className="form-group col-md-1">
+                <div className="form-group col-md-3">
                     <label for="addReleaseDate">Release Date</label>
                     <input type="date" onChange={(event) => setReleaseDate(event.target.value)} className="form-control" id="releaseDate" placeholder="YYYY/MM/DD"/>
                 </div>

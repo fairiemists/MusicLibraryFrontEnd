@@ -8,7 +8,6 @@ function App() {
 
   const [songs, setSongs] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [newSong, setNewSong] = useState("");
 
   useEffect(() => {
     getAllSongs();
@@ -20,15 +19,10 @@ function App() {
     setSongs(response.data)
   }
 
-  //added per App on Social Feed project
-  // function newSong(song) {
-  //   let tempSongs = [...songs, song];
-  //   setSongs(tempSongs);
-  // }
 
   return (
     <div>
-      <AddSong newSongProperty={newSong} songs={songs} />
+      <AddSong getAllSongs={getAllSongs} />
       <br></br>
       <br></br>
       <SearchBar input = {searchTerm} setInput = {setSearchTerm}/>
