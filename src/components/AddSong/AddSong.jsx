@@ -31,7 +31,7 @@ const AddSong = ({getAllSongs}) => {
         let response = axios.post('http://127.0.0.1:8000/api/music/', newSongInfo);
         console.log("New Song Sent", response.data)
         await getAllSongs();
-        
+        window.location.reload();
     }
 
     return ( 
